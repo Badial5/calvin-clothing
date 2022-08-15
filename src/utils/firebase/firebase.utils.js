@@ -89,5 +89,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
 export const signOutUser = async () => await signOut(auth)
 
+
+
 export const onAuthStateChangedListener = (callback) =>
  onAuthStateChanged(auth, callback )

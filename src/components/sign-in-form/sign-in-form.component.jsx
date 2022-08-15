@@ -2,7 +2,8 @@ import { useState } from "react"
 //import { createUserWithEmailAndPassword } from "firebase/auth"
 import { signInWithGooglePopup,
 createUserDocumentFromAuth,
-signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils"
+signInAuthUserWithEmailAndPassword,
+onAuthStateChangedListener } from "../../utils/firebase/firebase.utils"
 
 import FormInput from "../form-input/form-input.component"
 
@@ -36,6 +37,8 @@ const SignInForm = () => {
         
          
     }
+
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
