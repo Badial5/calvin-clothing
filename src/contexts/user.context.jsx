@@ -26,7 +26,10 @@ export const UserProvider = ({children}) => {
     useEffect(() => { 
         const unsubscribe = onAuthStateChangedListener((user) => {
             if(user) {
+                //this means 
+                //if user pass in via Google signin then create a documant
                 createUserDocumentFromAuth(user)
+                
             }
             setCurrentUser(user)
         })

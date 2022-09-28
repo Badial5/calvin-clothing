@@ -4,13 +4,9 @@ import Navigation from './routes/home/navigation/navigation.component'
 import Home from './routes/home/home.component'
 import Authentication from './routes/home/authentication/authentication.component'
 
-const Shop = () => {
-  return(
-    <div>
-      <h1>I am the Shop Page</h1>
-    </div>
-  )
-}
+//context
+import Shop from "./components/shop/shop.component"
+
 
 const App = () => {
   return (
