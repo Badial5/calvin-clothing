@@ -1,21 +1,31 @@
-import SHOP_DATA from "../../shop-data.json"
-   
+// Inorder to use context data, You have to import
+//useContext first
+import { useContext } from "react"
+
+//then the context we want to use or access
+import { ProductsContext } from "../../contexts/products.context"
+import ProductCard from "../product-card/product-card.component"
+
+import "./shop.styles.scss"
 
 
 const Shop = () => {
 
-    
+  //destructure products from ProductsContext and rename
+  // it as Products
+  const {products: Products} = useContext(ProductsContext)
+
 
   return (
-    <div>
+    <div className="products-container">
 
       {
-        SHOP_DATA.map(({id, name}) => (
-          <div key={id}>
-            <h2>{name}</h2>
-          </div>
+        Products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))
       }  
+
+      
       
       
 
