@@ -1,9 +1,9 @@
 import { useState } from "react"
 //import { createUserWithEmailAndPassword } from "firebase/auth"
 import { signInWithGooglePopup,
-createUserDocumentFromAuth,
+
 signInAuthUserWithEmailAndPassword,
-onAuthStateChangedListener } from "../../utils/firebase/firebase.utils"
+} from "../../utils/firebase/firebase.utils"
 
 import FormInput from "../form-input/form-input.component"
 
@@ -35,12 +35,15 @@ const SignInForm = () => {
     const signInWithGoogle = async () => {
      await signInWithGooglePopup();
         
-         
+         //create user document has been moved to context
     }
 
     
 
     const handleSubmit = async (event) => {
+
+        //prevent form default behaviour that is
+        //loading anything the form is click
         event.preventDefault();
 
 

@@ -23,7 +23,13 @@ const Navigation = () => {
                 SHOP
             </Link>
 
-            {
+          
+            { 
+            //curly bracket cos we re introducing
+            // a javascript 
+
+            //if currentUser is true change the signin
+            // to sign out and vice versa
               currentUser ? (
                 <span onClick={signOutUser}
                  className='nav-link' >

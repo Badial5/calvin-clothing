@@ -25,9 +25,13 @@ export const UserProvider = ({children}) => {
 
     useEffect(() => { 
         const unsubscribe = onAuthStateChangedListener((user) => {
+            // I only want to create user document only when
+            // the user comes true
             if(user) {
                 createUserDocumentFromAuth(user)
             }
+
+            //otherwise set the user either null or sign in
             setCurrentUser(user)
         })
         
@@ -39,7 +43,3 @@ export const UserProvider = ({children}) => {
     </UserContext.Provider>
 }
 
-<UserProvider>
-
-    <app />
-</UserProvider>
