@@ -8,6 +8,8 @@ import CartDropdown from '../../../components/cart-dropdown/cart-dropdown.compon
 import { CartContext } from '../../../contexts/cart.context'
 
 
+
+
 import './navigation.styles.scss'
 
 
@@ -16,8 +18,10 @@ const Navigation = () => {
 
     const { isCartOpen} = useContext(CartContext)
 
+   
+
     return (
-      <Fragment>
+      <>
         <div className='navigation' >
             <Link className='logo-container' to='/' >
                 <CrwnLogo className='logo' to='/' />
@@ -62,7 +66,7 @@ const Navigation = () => {
           }
         </div>
         <Outlet />
-      </Fragment>
+      </>
     )
   }
 
