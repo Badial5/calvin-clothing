@@ -13,7 +13,7 @@ const CartItem = ({CartItem}) => {
       
       {/* Inside I am going to have image that is the image background
       at the left */}
-
+ 
       <img src={imageUrl} alt={`${name}`} />
       <div className="item-details">
 
