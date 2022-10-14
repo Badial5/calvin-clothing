@@ -107,7 +107,7 @@ export const onAuthStateChangedListener = (callback) =>
 
  //it needs the collectionKey and the actual doctument you want to add
  // rename our document as "objectsToAdd"
- export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     //just as I attend with the userDocRef likewise will I do the same here
     //I will need the db as the collectionRef and the collection key
     
@@ -118,5 +118,22 @@ export const onAuthStateChangedListener = (callback) =>
     //to do that, we will NEED A BATCH(writeBatch - we imported)
     //WriteBatch helps us to  add all our data to the db
 
+    // We patch on the db we are making the batch on
+    const batch = writeBatch(db)
 
+    //What allows me to do are plenty: Add, delete, edit, etc
+
+    //the object is the objects in our SHOP_DATA we are passing it as
+    //parameter 
+    objectsToAdd.forEach((object) => {
+
+      //object.title is the title defined from the SHOP_DATA
+      const docRef = doc(collectionRef, object.title.toLowerCase())
+      batch.set(docRef, object)
+    })
+
+    await batch.commit();
+    console.log("done")
+
+    //then I import it in my productContext
  }
