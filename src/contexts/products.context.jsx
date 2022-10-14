@@ -1,9 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 
-import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
+//We can delete it after the categories have been added
+//import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
 
 //importing the products json
-import SHOP_DATA from "../shop-data.js"
+//we can delete it after it has been added
+//import SHOP_DATA from "../shop-data.js"
+
+import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 
 export const ProductsContext = createContext({
@@ -24,6 +28,24 @@ export const ProductsProvider = ({children}) => {
     //state
     
     const [ products, setProducts  ] = useState([])
+
+
+    //to get the categories data
+    useEffect(() => {
+
+        const getCategoriesMap = async () => {
+            const categoryMap = await getCategoriesAndDocuments();
+
+            console.log(categoryMap)
+        };
+
+        getCategoriesMap();
+
+        
+    }, []);
+
+
+
 
     //We can delete it once it reflected in your firebase storage or else
     //anytime u run the app it will rerun and set it with new values
