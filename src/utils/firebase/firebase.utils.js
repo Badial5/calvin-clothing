@@ -13,7 +13,8 @@ import { getAuth, signInWithRedirect,
 } from 'firebase/auth'
 
 //Firebase Datastore
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc,
+collection, writeBatch } from 'firebase/firestore'
 
 
 // Your web app's Firebase configuration
@@ -101,3 +102,21 @@ export const signOutUser = async () => await signOut(auth)
 
 export const onAuthStateChangedListener = (callback) =>
  onAuthStateChanged(auth, callback )
+
+ // COLLECTION
+
+ //it needs the collectionKey and the actual doctument you want to add
+ // rename our document as "objectsToAdd"
+ export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+    //just as I attend with the userDocRef likewise will I do the same here
+    //I will need the db as the collectionRef and the collection key
+    
+    const collectionRef = collection(db, collectionKey)
+    //Now how to store this objects inside this collectionRef thus we will need
+    // transaction - it represent a successful unit of work to a db
+
+    //to do that, we will NEED A BATCH(writeBatch - we imported)
+    //WriteBatch helps us to  add all our data to the db
+
+
+ }
