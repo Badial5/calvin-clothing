@@ -10,12 +10,16 @@ import { createContext, useEffect, useState } from "react";
 import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 
-export const ProductsContext = createContext({
+//In this session I rename the variable names to reflect the actual
+// variable
+
+
+export const CategoriesContext = createContext({
 
     //what do we want to store
     //we know we want to install an array of products
 
-    products: [],
+    categoriesMap: {},
   
     //next we need a function that will help us to set 
     //that products 
@@ -24,10 +28,10 @@ export const ProductsContext = createContext({
 
 
 
-export const ProductsProvider = ({children}) => {
+export const CategoriesProvider = ({children}) => {
     //state
     
-    const [ products, setProducts  ] = useState([])
+    const [ categoriesMap, setCategoriesMap  ] = useState({})
 
 
     //to get the categories data
@@ -37,6 +41,9 @@ export const ProductsProvider = ({children}) => {
             const categoryMap = await getCategoriesAndDocuments();
 
             console.log(categoryMap)
+
+            //set the categories on the categoryMap
+            setCategoriesMap(categoryMap)
         };
 
         getCategoriesMap();
@@ -62,10 +69,10 @@ export const ProductsProvider = ({children}) => {
 
 
 
-    const value = {products}
+    const value = {categoriesMap}
 
 
-    return <ProductsContext.Provider value={value}>
+    return <CategoriesContext.Provider value={value}>
         {children}
-    </ProductsContext.Provider>
+    </CategoriesContext.Provider>
 }
