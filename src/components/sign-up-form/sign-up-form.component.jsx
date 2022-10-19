@@ -8,7 +8,8 @@ import Button from "../button/button.component"
 
 
 
-import './sign-up-form.styles.scss'
+import { SignupContainer,
+     SubTitle2 } from "./sign-up-form.styles"
 
 
 
@@ -75,8 +76,8 @@ const SignUpForm = () => {
     }
 
     return (
-        <div className="sign-up-container" >
-            <h2>Don't have an account</h2>
+        <SignupContainer >
+            <SubTitle2>Don't have an account</SubTitle2>
             <span>Sign up with your email and password</span>
 
             <form onSubmit={handleSubmit} >
@@ -110,7 +111,7 @@ const SignUpForm = () => {
                 <Button  type="submit" >Sign Up</Button>
             </form>
 
-        </div>
+        </SignupContainer>
     )
 }
 

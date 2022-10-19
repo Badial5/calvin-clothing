@@ -10,7 +10,9 @@ import { CartContext } from '../../../contexts/cart.context'
 
 
 
-import './navigation.styles.scss'
+import {NavigationContainer,
+NavLink, NavLinks, LogoContainer
+} from  "./navigation.styles.jsx"
 
 
 const Navigation = () => {
@@ -22,14 +24,17 @@ const Navigation = () => {
 
     return (
       <>
-        <div className='navigation' >
-            <Link className='logo-container' to='/' >
+        <NavigationContainer>
+            <LogoContainer to='/' >
                 <CrwnLogo className='logo' to='/' />
-            </Link>
-          <div className='nav-links-container' >
-            <Link className='nav-link' to='/shop' >
+            </LogoContainer>
+
+
+
+          <NavLinks >
+            <NavLink to='/shop' >
                 SHOP
-            </Link>
+            </NavLink>
 
           
             { 
@@ -39,14 +44,14 @@ const Navigation = () => {
             //if currentUser is true change the signin
             // to sign out and vice versa
               currentUser ? (
-                <span onClick={signOutUser}
-                 className='nav-link' >
+                <NavLink as="span" onClick={signOutUser}
+                NavLink >
                   SIGN OUT 
-                </span> )
+                </NavLink> )
                 : (
-                <Link className='nav-link' to='/auth'>
+                <NavLink to='/auth'>
                 SIGN IN
-              </Link>
+              </NavLink>
               )
 
               
@@ -55,7 +60,7 @@ const Navigation = () => {
             
             <CartIcon />
             
-          </div>
+          </NavLinks>
           {
             //if the CartIcon is click which will render it true then 
             // open the cart-dropdown
@@ -64,7 +69,7 @@ const Navigation = () => {
             //isCartOpen ? <CartDropdown /> : console.log("")
 
           }
-        </div>
+        </NavigationContainer>
         <Outlet />
       </>
     )
