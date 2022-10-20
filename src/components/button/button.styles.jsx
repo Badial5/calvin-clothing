@@ -4,10 +4,10 @@ export const BaseButton = styled.button`
   min-width: 165px;
     width: auto;
     height: 50px;
-    letter-spacing: 0.5px;
-    line-height: 20px;
-    padding: 0 35px 0 35px;
-    font-size: 15px;
+    letter-spacing: 0.8px;
+    line-height: 12px;
+    padding: 16px 20px 16px 20px;
+    font-size: 0.8rem;
     background-color: black;
     color: white;
     text-transform: uppercase;
