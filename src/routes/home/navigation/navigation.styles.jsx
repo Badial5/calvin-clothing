@@ -33,6 +33,13 @@ export const NavigationContainer = styled.div`
     `    
       
   
+export const LogoImg = styled.img`
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+`
+
+
   
     
   
